@@ -1,0 +1,21 @@
+<div class="container p-5">
+    <div *ngIf="!ticket">wait...</div>
+    <table class="table" *ngIf="ticket">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">description</th>
+        <th scope="col">completed</th>
+        <th scope="col">assign-id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ticket.id}}</td>
+        <td>{{ticket.description}}</td>
+        <td>{{ticket.completed}}</td>
+        <td>{{ticket.assigneeId}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

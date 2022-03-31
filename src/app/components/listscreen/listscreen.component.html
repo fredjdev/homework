@@ -1,0 +1,39 @@
+
+<div class="container p-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="text-center">
+                <h2>Users</h2>
+            </div>
+            <ul class="list-group">
+                <ng-container *ngFor="let user of users">
+                    <li class="list-group-item list-group-item-light">
+                        <span class="badge badge-primary badge-pill">{{ user.id }}</span>
+                        {{ user.name }}
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <div class="text-center">
+                <h2>Tickets<button type="button" class="btn btn-secondary ml-3" (click)="createTicket()">Create new ticket</button></h2>
+            </div>
+            <ul class="list-group">
+                <ng-container *ngFor="let ticket of tickets">
+                    <li class="list-group-item" [ngClass]="{'list-group-item-success': ticket.completed === true}">
+                        <span class="badge badge-primary badge-pill">{{ ticket.id }}</span>
+                        {{ ticket.description }}
+                        <button type="button" class="btn btn-dark float-right ml-3" (click)="assign(ticket.id)">assign</button>
+                        <button type="button" class="btn btn-dark float-right ml-3" (click)="navigateToDetails(ticket.id)">Details</button>
+                        <div class="form-check float-right">
+                            <input class="form-check-input" type="checkbox" [checked]="ticket.completed" (change)="onChangeInput(ticket.id)" id="{{'ticket-'+ticket.id}}" checked>
+                            <label class="form-check-label" for="{{'ticket-'+ticket.id}}">
+                              completed
+                            </label>
+                        </div>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+</div>
